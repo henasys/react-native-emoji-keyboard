@@ -41,6 +41,8 @@ const getUnicodeVersion = () => {
     }
 };
 
+const hasImageOS = `has_img_${Platform.OS === 'ios' ? 'apple' : 'google'}`;
+
 export const handleDefaultEmoji = (data, blackList) => {
     const unicodeVersion = getUnicodeVersion();
     console.log('unicodeVersion', unicodeVersion);
