@@ -24,6 +24,7 @@ export const isAndroid = () => {
 
 const getEmojiVersion = () => {
     const version = parseFloat(Platform.Version);
+    console.log('Platform.Version', Platform.OS, Platform.Version);
     if (Platform.OS === 'ios') {
         return version < 13.2 ? 11 : 12.1;
     } else {
@@ -43,7 +44,7 @@ const hasImageOS = `has_img_${Platform.OS === 'ios' ? 'apple' : 'google'}`;
 
 export const handleDefaultEmoji = (data, blackList) => {
     const emojiVersion = getEmojiVersion();
-    console.log('emojiVersion', emojiVersion);
+    console.log('emojiVersion', Platform.OS, emojiVersion);
     const checkedData = data.filter(e => parseFloat(e.added_in) <= emojiVersion && e[hasImageOS] === true);
     const filteredData = checkedData.filter(e => !_.includes(blackList, e.short_name));
     const sortedData = _.orderBy(filteredData, 'sort_order');
