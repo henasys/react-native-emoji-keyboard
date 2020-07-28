@@ -29,13 +29,13 @@ const getEmojiVersion = () => {
         return version < 13.2 ? 11 : 12.1;
     } else {
         if (version <= 24) {
-            return 1.0;
+            return 4.0;
         } else if (version <= 26) {
-            return 3.0;
-        } else if (version <= 28) {
             return 5.0;
-        } else {
+        } else if (version <= 28) {
             return 11.0;
+        } else {
+            return 12.1;
         }
     }
 };
