@@ -22,21 +22,19 @@ export const isAndroid = () => {
     return Platform.OS === 'android';
 };
 
-const getUnicodeVersion = () => {
+const getEmojiVersion = () => {
     const version = parseFloat(Platform.Version);
     if (Platform.OS === 'ios') {
         return version < 13.2 ? 11 : 12.1;
     } else {
-        if (version < 24) {
-            return 7.0;
-        } else if (version < 26) {
-            return 8.0;
-        } else if (version < 28) {
-            return 9.0;
-        } else if (version < 29) {
-            return 10.0;
+        if (version <= 24) {
+            return 1.0;
+        } else if (version <= 26) {
+            return 3.0;
+        } else if (version <= 28) {
+            return 5.0;
         } else {
-            return 12.1;
+            return 11.0;
         }
     }
 };
@@ -44,9 +42,9 @@ const getUnicodeVersion = () => {
 const hasImageOS = `has_img_${Platform.OS === 'ios' ? 'apple' : 'google'}`;
 
 export const handleDefaultEmoji = (data, blackList) => {
-    const unicodeVersion = getUnicodeVersion();
-    console.log('unicodeVersion', unicodeVersion);
-    const checkedData = data.filter(e => parseFloat(e.added_in) <= unicodeVersion && e[hasImageOS] === true);
+    const emojiVersion = getEmojiVersion();
+    console.log('emojiVersion', emojiVersion);
+    const checkedData = data.filter(e => parseFloat(e.added_in) <= emojiVersion && e[hasImageOS] === true);
     const filteredData = checkedData.filter(e => !_.includes(blackList, e.short_name));
     const sortedData = _.orderBy(filteredData, 'sort_order');
     const groupedData = _.groupBy(sortedData, 'category');
