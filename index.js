@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         paddingBottom: isIphoneXorAbove() ? 15 : 0
-    }
+    },
+    scrollTable: {}
 });
 
 const EmojiBoard = ({
