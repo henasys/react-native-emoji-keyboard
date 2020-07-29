@@ -110,7 +110,7 @@ const EmojiBoard = ({
                 styles.container,
                 {
                     bottom: position,
-                    height: isAndroid() ? containerHeight : 'auto'
+                    height: containerHeight
                 },
                 containerStyle
             ]}>
