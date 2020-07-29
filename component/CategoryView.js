@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     categoryPageView: {
         flex: 1,
         flexDirection: 'row',
+        justifyContent: 'center',
         flexWrap: 'wrap',
         paddingHorizontal: 10
     },
