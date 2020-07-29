@@ -6,7 +6,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import SkinBox from './SkinBox';
 import EmojiIcon from './EmojiIcon';
 
-const {width} = Dimensions.get('window');
+// const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     categoryView: {
@@ -44,6 +44,7 @@ const CategoryView = ({
         emoji: null
     });
     // Emoji count per page
+    const {width} = Dimensions.get('window');
     const perPage = numRows * numCols;
     const emojiWidth = (width - 20) / numRows;
     const clickEmoji = emoji => {
