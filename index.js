@@ -19,7 +19,7 @@ const {width} = Dimensions.get('window');
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#EAEBEF',
-        width: width,
+        // width: width,
         position: 'absolute',
         zIndex: 10,
         overflow: 'visible',
@@ -46,6 +46,7 @@ const EmojiBoard = ({
     categoryDefautColor = '#aaa',
     categoryHighlightColor = '#000',
     categoryIconSize = 20,
+    hasNotchAndLandscape = false,
     containerStyle = {},
     tabBarStyle = {},
     labelStyle = {}
@@ -100,6 +101,7 @@ const EmojiBoard = ({
                 key={name}
                 tabLabel={name}
                 labelStyle={labelStyle}
+                hasNotchAndLandscape={hasNotchAndLandscape}
                 onClick={onClick}
             />
         );
@@ -111,7 +113,7 @@ const EmojiBoard = ({
                 styles.container,
                 {
                     bottom: position,
-                    height: containerHeight
+                    height: isAndroid() ? containerHeight : containerHeight + 20
                 },
                 containerStyle
             ]}>
@@ -169,6 +171,7 @@ EmojiBoard.propTypes = {
     categoryDefautColor: PropTypes.string,
     categoryHighlightColor: PropTypes.string,
     categoryIconSize: PropTypes.number,
+    hasNotchAndLandscape: PropTypes.bool,
     containerStyle: PropTypes.object,
     tabBarStyle: PropTypes.object,
     labelStyle: PropTypes.object
