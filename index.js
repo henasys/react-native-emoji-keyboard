@@ -14,12 +14,9 @@ import CategoryTabBar from './component/CategoryTabBar';
 import CategoryView from './component/CategoryView';
 import {defaultProps, IconType} from './constant';
 
-const {width} = Dimensions.get('window');
-
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#EAEBEF',
-        // width: width,
         position: 'absolute',
         zIndex: 10,
         overflow: 'visible',
@@ -39,6 +36,7 @@ const EmojiBoard = ({
     numRows = 8,
     numCols = 5,
     emojiSize = 24,
+    categoryViewWidth = Dimensions.get('window').width,
     onClick,
     onRemove,
     tabBarPosition = 'bottom',
@@ -97,6 +95,7 @@ const EmojiBoard = ({
                 numRows={numRows}
                 numCols={numCols}
                 emojiSize={emojiSize}
+                width={categoryViewWidth}
                 key={name}
                 tabLabel={name}
                 labelStyle={labelStyle}
