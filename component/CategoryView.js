@@ -38,7 +38,6 @@ const CategoryView = ({
     numCols,
     emojiSize,
     labelStyle,
-    hasNotchAndLandscape = false,
     onClick
 }) => {
     const [toggleSkinBox, setToggleSkinBox] = useState({
@@ -48,8 +47,7 @@ const CategoryView = ({
     // Emoji count per page
     const {width} = Dimensions.get('window');
     const perPage = numRows * numCols;
-    const spacer = hasNotchAndLandscape ? 1 : 0;
-    const emojiWidth = (width - 40) / (numRows + spacer);
+    const emojiWidth = (width - 40) / numRows;
     const clickEmoji = emoji => {
         setToggleSkinBox({
             showSkinBox: false,

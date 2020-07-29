@@ -46,7 +46,6 @@ const EmojiBoard = ({
     categoryDefautColor = '#aaa',
     categoryHighlightColor = '#000',
     categoryIconSize = 20,
-    hasNotchAndLandscape = false,
     containerStyle = {},
     tabBarStyle = {},
     labelStyle = {}
@@ -101,7 +100,6 @@ const EmojiBoard = ({
                 key={name}
                 tabLabel={name}
                 labelStyle={labelStyle}
-                hasNotchAndLandscape={hasNotchAndLandscape}
                 onClick={onClick}
             />
         );
@@ -171,7 +169,6 @@ EmojiBoard.propTypes = {
     categoryDefautColor: PropTypes.string,
     categoryHighlightColor: PropTypes.string,
     categoryIconSize: PropTypes.number,
-    hasNotchAndLandscape: PropTypes.bool,
     containerStyle: PropTypes.object,
     tabBarStyle: PropTypes.object,
     labelStyle: PropTypes.object
